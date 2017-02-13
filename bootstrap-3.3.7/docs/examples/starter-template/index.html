@@ -60,8 +60,8 @@
     	<input type="submit" name="" value="вниз " width="25px">
     	<button style="position: fixed; top: 200px; right: 50px; width: 50px; height: 25px; " onclick="Up()" value="dfgd" type="submit" "></button>
     </div>-->
-    <button style="position: fixed; top: 200px; right: 50px; " onclick="Up()" type="submit" "><img src="up.png" alt="" style="vertical-align:middle"></button>
-    <button style="position: fixed; top: 250px; right: 50px; " onclick="Down()" type="submit" "><img src="down.png" alt="" style="vertical-align:middle"></button>
+    <button style="position: fixed; top: 200px; right: 50px; " onclick="Up()" type="submit" name="1" id="buttonUp" "><img src="up.png" alt="" style="vertical-align:middle"></button>
+    <button style="position: fixed; top: 250px; right: 50px; " onclick="Down()" type="submit" name="2" id="buttonDown" "><img src="down.png" alt="" style="vertical-align:middle"></button>
 
     <script type="text/javascript">
     var elements = document.getElementsByClassName("jsElement"); // Массив секций с классом "JsElement"
@@ -71,6 +71,9 @@
     	position -= 1 ;// Изменили позицию
     	//alert(position);
     	if(position < 0) position = 0; // Проверили не привысило ли значение переменной размер массива, если привысило то обнуляем.
+    	//if(position == 1) buttonUp.style = "position: fixed; top: 200px; right: 50px";
+    	if(position == 0) buttonUp.style.visibility= "hidden";
+    	if(position != elements.length - 1) buttonDown.style.visibility = "visible"
     	console.log(position);
     	elements[position].scrollIntoView();
 
@@ -78,6 +81,10 @@
     function Down() {
     	position += 1;
     	if(position >= elements.length) position = elements.length - 1;
+    	if(position != 0) buttonUp.style.visibility= "visible";
+    	if(position == elements.length - 1) buttonDown.style.visibility = "hidden";
+    	
+
     	console.log(position);
     	elements[position].scrollIntoView();
     }
