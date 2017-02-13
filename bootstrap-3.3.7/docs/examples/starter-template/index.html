@@ -69,22 +69,18 @@
     var position = 0; // переменная позиции переключения в массиве, присвоил значение 0.
     function Up() {
     	position -= 1 ;// Изменили позицию
-    	//alert(position);
     	if(position < 0) position = 0; // Проверили не привысило ли значение переменной размер массива, если привысило то обнуляем.
-    	//if(position == 1) buttonUp.style = "position: fixed; top: 200px; right: 50px";
-    	if(position == 0) buttonUp.style.visibility= "hidden";
-    	if(position != elements.length - 1) buttonDown.style.visibility = "visible"
+    	if(position == 0) buttonUp.style.visibility= "hidden";// Скрываем книпку вверх, если позиция равна 0.
+    	if(position != elements.length - 1) buttonDown.style.visibility = "visible"//Делаем видимой кнопку Вниз, если позиция не равна последнему элементу массива.
     	console.log(position);
     	elements[position].scrollIntoView();
 
     }
     function Down() {
-    	position += 1;
-    	if(position >= elements.length) position = elements.length - 1;
-    	if(position != 0) buttonUp.style.visibility= "visible";
-    	if(position == elements.length - 1) buttonDown.style.visibility = "hidden";
-    	
-
+    	position += 1;//Изменяем позицию
+    	if(position >= elements.length) position = elements.length - 1;//Проверили не привысило ли значение переменной размер массива.
+    	if(position != 0) buttonUp.style.visibility= "visible"; //Делаем видимой кнопку вверх, если позиция не равна 0
+    	if(position == elements.length - 1) buttonDown.style.visibility = "hidden";// Скрываем кнопку вниз, если позиция равна последнему элементу массива.
     	console.log(position);
     	elements[position].scrollIntoView();
     }
