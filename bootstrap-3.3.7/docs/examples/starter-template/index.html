@@ -84,14 +84,13 @@
     	console.log(position);
     	elements[position].scrollIntoView();
     }
+    window.onscroll = function() {
+	posTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;// Находим вертикальный скролл
+	alert(posTop); //выводим положение скролла на экран при его изменении.
+	if(0 < posTop && posTop < 500) position = 0;
 
-
-
-
-
-    	
-    	
-    </script>
+}
+</script>
 
 
 
